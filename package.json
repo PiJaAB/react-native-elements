@@ -1,0 +1,19 @@
+{
+  "name": "@pija-ab/react-native-elements",
+  "version": "0.0.9",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PiJaAB/react-native-elements.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PiJaAB/react-native-elements/issues"
+  },
+  "homepage": "https://github.com/PiJaAB/react-native-elements#readme"
+}
