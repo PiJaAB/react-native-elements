@@ -1,10 +1,9 @@
 // @flow
 import React, { Component } from 'react';
-import compose from 'src/utilities/compose';
+import compose from '../../Theme/utilities/compose';
 import { TouchableOpacity, Text, View } from 'react-native';
-// import { Theme, withTheme } from 'src/services/theme';
 import { Theme, withTheme } from '../../Theme';
-import camelCaseJoin from 'src/utilities/camelCaseJoin';
+import camelCaseJoin from '../../Theme/utilities/camelCaseJoin';
 
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 

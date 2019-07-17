@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Text } from 'react-native';
-import compose from 'src/utilities/compose';
+import compose from '../../Theme/utilities/compose';
 import { Theme, withTheme } from '../../Theme';
 
 type Props = {

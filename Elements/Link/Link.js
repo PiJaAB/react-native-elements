@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { TouchableOpacity, Text } from 'react-native';
-import compose from 'src/utilities/compose';
+import compose from '../../Theme/utilities/compose';
 import { Theme, withTheme } from '../../Theme';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 

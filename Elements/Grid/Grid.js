@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
 import { View } from 'react-native';
-import compose from 'src/utilities/compose';
+import compose from '../../Theme/utilities/compose';
 
 import { Theme, withTheme } from '../../Theme';
-import camelCaseJoin from 'src/utilities/camelCaseJoin';
-import withStatics from 'src/utilities/withStatics';
+import camelCaseJoin from '../../Theme/utilities/camelCaseJoin';
+import withStatics from '../../Theme/utilities/withStatics';
 
 const passOnProps = ({ size }) => child => (
   child && child.props && child.props.size === undefined
