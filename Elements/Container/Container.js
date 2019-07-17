@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import compose from 'src/utilities/compose';
+import compose from '../../Theme/utilities/compose';
 import { View, ScrollView } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Theme, withTheme } from '../../Theme';
-import withStatics from 'src/utilities/withStatics';
+import withStatics from '../../Theme/utilities/withStatics';
 
 type FillProps = {
   children: Node,

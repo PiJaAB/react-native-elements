@@ -1,8 +1,8 @@
 // @flow
 import type ThemeSpec from '../../Theme';
-import {font, unit} from '../../Theme';
+import {unit} from '../../Theme';
 
-export default ({ fonts, dimensions, colors }: ThemeSpec) => ({
+export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
   header: {
     color: colors.text,
     fontSize: dimensions.baseSize * unit(23),

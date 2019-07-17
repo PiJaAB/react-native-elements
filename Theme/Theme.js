@@ -1,11 +1,15 @@
 // @flow
 import { StyleSheet } from 'react-native';
+import type { TextStyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
+import type { Props as FontProps } from './utilities/font';
 
 export type ThemeSpec = {
   name: string,
   colors: { [string]: string },
   dimensions: { [string]: number },
   fonts: { [string]: { [string]: mixed } },
+  font?: FontProps => TextStyleProp,
+  getFontName?: (string, string, string) => string,
 };
 
 export default class Theme {

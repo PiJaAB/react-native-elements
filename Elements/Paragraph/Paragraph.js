@@ -2,9 +2,9 @@
 import React from 'react';
 import type { Node } from 'react';
 import { Text } from 'react-native';
-import compose from 'src/utilities/compose';
+import compose from '../../Theme/utilities/compose';
 import { Theme, withTheme } from '../../Theme';
-import withStatics from 'src/utilities/withStatics';
+import withStatics from '../../Theme/utilities/withStatics';
 
 /** A group of Paragraphs, with paragraph spacing in-between them */
 const Group = ({ children }: { children: Node }) => (
