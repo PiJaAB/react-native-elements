@@ -1,8 +1,8 @@
 // @flow
 import type ThemeSpec from '../../Theme';
-import {font, unit} from '../../Theme';
+import {unit} from '../../Theme';
 
-export default ({ colors, dimensions, fonts }: ThemeSpec) => ({
+export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
   paragraph: {
     color: colors.text,
     ...fonts.text,
