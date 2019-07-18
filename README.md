@@ -144,10 +144,10 @@ After this has been done you should be good to go and use all of the building bl
 
 #### Common props
 Some common props that is available on all of the components
-|Prop|Description|Type|
-|-|-|-|-|
-|`style`|Basic inline style|`object`|
-|`className`|Sets class for your component |`string`|
+| Prop        | Description                   | Type     |
+|-------------|-------------------------------|----------|
+| `style`     | Basic inline style            | `object` |
+| `className` | Sets class for your component | `string` |
 
 
 * [Button](#button)
@@ -164,12 +164,12 @@ Some common props that is available on all of the components
 * [SceneContainer](#sceneContainer)
 
 #### Button
-|Prop|Description|Type|
-|-|-|-|-|
-|`variant`|String that should be one of the defined colors in the color.js file|`string`|
-|`onPress`|Assigning button trigger|`function`|
-|`loading`|Shows a loading indicator in the middle of the button|`boolean`|
-|`disabled`|Disables the button|`boolean`|
+| Prop       | Description                                                          | Type       |
+|------------|----------------------------------------------------------------------|------------|
+| `variant`  | String that should be one of the defined colors in the color.js file | `string`   |
+| `onPress`  | Assigning button trigger                                             | `function` |
+| `loading`  | Shows a loading indicator in the middle of the button                | `boolean`  |
+| `disabled` | Disables the button                                                  | `boolean`  |
 ```js
 import { Button } from '@pija-ab/react-native-elements';
 ...
@@ -182,11 +182,11 @@ String
 ...
 ```
 #### Container
-|Prop|Description|Type|
-|-|-|-|-|
-|`scrollable`|Makes it scrollable|`boolean`|
-|`keyboardAware`|Automatically scrolls to focused area when keyboard appears|`boolean`|
-|`verticallyAligned`|Grows the container component and aligns content inside the component in the center|`boolean`|
+| Prop                | Description                                                                         | Type      |
+|---------------------|-------------------------------------------------------------------------------------|-----------|
+| `scrollable`        | Makes it scrollable                                                                 | `boolean` |
+| `keyboardAware`     | Automatically scrolls to focused area when keyboard appears                         | `boolean` |
+| `verticallyAligned` | Grows the container component and aligns content inside the component in the center | `boolean` |
 
 Basic usage of the Container component is wrapping the content in your components
 ```js
@@ -209,23 +209,23 @@ Container also have a child component for making the content ignore the bounds o
 ```
 
 #### Grid
-|Prop|Description|Type|
-|-|-|-|-|
-|`size`|Takes one of either `collapsed` `small` `medium` `large` `extraLarge` |`string`|
-|`flexWrap`|Takes one of either `wrap` `nowrap` |`string`|
-|`alignItems`|Takes one of either `flex-start` `flex-end` `center` `stretch` `baseline` |`string`|
-|`alignContent`|Takes one of either `flex-start` `flex-end` `center` `stretch` `space-between` `space-around` |`string`|
-|`justifyContent`|Takes one of either `flex-start` `flex-end` `center` `space-between` `space-around` `space-evenly`|`string`|
+| Prop             | Description                                                                                        | Type     |
+|------------------|----------------------------------------------------------------------------------------------------|----------|
+| `size`           | Takes one of either `collapsed` `small` `medium` `large` `extraLarge`                              | `string` |
+| `flexWrap`       | Takes one of either `wrap` `nowrap`                                                                | `string` |
+| `alignItems`     | Takes one of either `flex-start` `flex-end` `center` `stretch` `baseline`                          | `string` |
+| `alignContent`   | Takes one of either `flex-start` `flex-end` `center` `stretch` `space-between` `space-around`      | `string` |
+| `justifyContent` | Takes one of either `flex-start` `flex-end` `center` `space-between` `space-around` `space-evenly` | `string` |
 
 **Grid.Cell props**
-|Prop|Description|Type|
-|-|-|-|-|
-|`size`|Takes one of either `collapsed` `small` `medium` `large` `extraLarge` |`string`|
-|`column`|Takes one of either `1` `2` `3` `4` `5` `6` `7` `8` `9` `10` `11` `12`|`number`|
-|`flexGrow`|specifies how much of the remaining  space in the flex container should be assigned to the item|`number`|
-|`flexShrink`|If the size of all flex items is larger than the container items shrink to fit |`number`|
-|`flexBasis`|Sets the initial main size of an item|`string` or `number`|
-|`alignSelf`|Takes one of either `auto` `flex-start` `flex-end` `center` `stretch` `baseline` |`string`|
+| Prop         | Description                                                                                     | Type                 |
+|--------------|-------------------------------------------------------------------------------------------------|----------------------|
+| `size`       | Takes one of either `collapsed` `small` `medium` `large` `extraLarge`                           | `string`             |
+| `column`     | Takes one of either `1` `2` `3` `4` `5` `6` `7` `8` `9` `10` `11` `12`                          | `number`             |
+| `flexGrow`   | specifies how much of the remaining  space in the flex container should be assigned to the item | `number`             |
+| `flexShrink` | If the size of all flex items is larger than the container items shrink to fit                  | `number`             |
+| `flexBasis`  | Sets the initial main size of an item                                                           | `string` or `number` |
+| `alignSelf`  | Takes one of either `auto` `flex-start` `flex-end` `center` `stretch` `baseline`                | `string`             |
 
 Basic usage of the cell component is that you have 1 `<Grid>` wrapping the `<Grid.Cell>` components.
 
@@ -259,10 +259,10 @@ import { Grid } from '@pija-ab/react-native-elements';
 ```
 
 #### Divider
-|Prop|Description|Type|
-|-|-|-|-|
-|`children`|Takes either a `Text` or `View` as a child and puts it's content in the center of the divider |`component`|
-|`fitted`|Removes the margin on the bottom and the top of the divider|`boolean`|
+| Prop       | Description                                                                                   | Type        |
+|------------|-----------------------------------------------------------------------------------------------|-------------|
+| `children` | Takes either a `Text` or `View` as a child and puts it's content in the center of the divider | `component` |
+| `fitted`   | Removes the margin on the bottom and the top of the divider                                   | `boolean`   |
 
 Basic usage of the devider:
 ```js
@@ -281,13 +281,13 @@ import { Divider } from '@pija-ab/react-native-elements';
 ```
 
 #### Header
-|Prop|Description|Type|
-|-|-|-|-|
-|`as`|Takes one of either `h1` `h2` `h3` `h4` `h5` `h6`  |`string`|
-|`sub`|Creates a sub header|`boolean`|
-|`inverted`|Changes the color of the header|`boolean`|
-|`marginBottom`|Adds margin under the header|`boolean`|
-|`textAlign`|Takes one of either `left` `center` `right` |`string`|
+| Prop           | Description                                       | Type      |
+|----------------|---------------------------------------------------|-----------|
+| `as`           | Takes one of either `h1` `h2` `h3` `h4` `h5` `h6` | `string`  |
+| `sub`          | Creates a sub header                              | `boolean` |
+| `inverted`     | Changes the color of the header                   | `boolean` |
+| `marginBottom` | Adds margin under the header                      | `boolean` |
+| `textAlign`    | Takes one of either `left` `center` `right`       | `string`  |
 
 Basic usage:
 
@@ -312,14 +312,14 @@ This is header 2 sub
 
 ```
 #### Link
-|Prop|Description|Type|
-|-|-|-|-|
-|`onPress`|Assigning link trigger|`function`|
-|`loading`|Shows a loading indicator in the middle of the button|`boolean`|
-|`disabled`|Disables the link|`boolean`|
-|`textAlign`|Takes one of either `left` `center` `right` |`string`|
-|`buttonUnderline`|If there should be an underline|`boolean`|
-|`underline`|If there should be an underline|`boolean`|
+| Prop              | Description                                           | Type       |
+|-------------------|-------------------------------------------------------|------------|
+| `onPress`         | Assigning link trigger                                | `function` |
+| `loading`         | Shows a loading indicator in the middle of the button | `boolean`  |
+| `disabled`        | Disables the link                                     | `boolean`  |
+| `textAlign`       | Takes one of either `left` `center` `right`           | `string`   |
+| `buttonUnderline` | If there should be an underline                       | `boolean`  |
+| `underline`       | If there should be an underline                       | `boolean`  |
 
 Basic usage of the `Link` component
 ```js
@@ -337,13 +337,13 @@ import { Loader } from '@pija-ab/react-native-elements';
 ```
 
 #### LoadingIndicator
-|Prop|Description|Type|
-|-|-|-|-|
-|`Loading`|Will be shown if loading is true|`boolean`|
-|`size`|Should be either `button` or `medium` |`string`|
-|`nonBasic`|Will show another color scheme of the loader|`boolean`|
-|`absolute`|Makes the loader absolute positioned|`boolean`|
-|`centered`|Centers the loader in it's current container|`boolean`|
+| Prop       | Description                                  | Type      |
+|------------|----------------------------------------------|-----------|
+| `Loading`  | Will be shown if loading is true             | `boolean` |
+| `size`     | Should be either `button` or `medium`        | `string`  |
+| `nonBasic` | Will show another color scheme of the loader | `boolean` |
+| `absolute` | Makes the loader absolute positioned         | `boolean` |
+| `centered` | Centers the loader in it's current container | `boolean` |
 
 Basic usage:
 ```js
@@ -354,9 +354,9 @@ import { LoadingIndicator } from '@pija-ab/react-native-elements';
 ```
 
 #### Message
-|Prop|Description|Type|
-|-|-|-|-|
-|`variant`|Should be `error` or null|`string`|
+| Prop      | Description               | Type     |
+|-----------|---------------------------|----------|
+| `variant` | Should be `error` or null | `string` |
 
 Some basic usage of the error
 ```js
@@ -369,11 +369,11 @@ import { Message } from '@pija-ab/react-native-elements';
 ```
 
 #### Paragrah
-|Prop|Description|Type|
-|-|-|-|-|
-|`textAlign`|Takes one of either `left` `center` `right` |`string`|
-|`paddingBefore`|If it should have padding before the paragraph|`boolean`|
-|`paddingAfter`|If it should have padding after the paragraph|`boolean`|
+| Prop            | Description                                    | Type      |
+|-----------------|------------------------------------------------|-----------|
+| `textAlign`     | Takes one of either `left` `center` `right`    | `string`  |
+| `paddingBefore` | If it should have padding before the paragraph | `boolean` |
+| `paddingAfter`  | If it should have padding after the paragraph  | `boolean` |
 
 ```js
 import { Message } from '@pija-ab/react-native-elements';
