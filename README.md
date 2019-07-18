@@ -144,6 +144,7 @@ After this has been done you should be good to go and use all of the building bl
 
 #### Common props
 Some common props that is available on all of the components
+
 | Prop        | Description                   | Type     |
 |-------------|-------------------------------|----------|
 | `style`     | Basic inline style            | `object` |
