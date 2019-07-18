@@ -219,6 +219,7 @@ Container also have a child component for making the content ignore the bounds o
 | `justifyContent` | Takes one of either `flex-start` `flex-end` `center` `space-between` `space-around` `space-evenly` | `string` |
 
 **Grid.Cell props**
+
 | Prop         | Description                                                                                     | Type                 |
 |--------------|-------------------------------------------------------------------------------------------------|----------------------|
 | `size`       | Takes one of either `collapsed` `small` `medium` `large` `extraLarge`                           | `string`             |
