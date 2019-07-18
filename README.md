@@ -142,12 +142,12 @@ After this has been done you should be good to go and use all of the building bl
 
 ## Basic building blocks:
 
-  #### Common props
-  Some common props that is available on all of the components
-  |Prop|Description|Type|
-  |-|-|-|-|
-  |`style`|Basic inline style|`object`|
-  |`className`|Sets class for your component |`string`|
+#### Common props
+Some common props that is available on all of the components
+|Prop|Description|Type|
+|-|-|-|-|
+|`style`|Basic inline style|`object`|
+|`className`|Sets class for your component |`string`|
 
 
 * [Button](#button)
