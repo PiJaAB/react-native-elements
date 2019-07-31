@@ -27,7 +27,6 @@ type Props = {
   loading?: boolean,
   disabled?: boolean,
   style?: mixed,
-  title?: string,
   className?: string | string[],
   theme: Theme,
   textStyle?: mixed,
@@ -51,24 +50,19 @@ class Button extends Component<Props, State> {
     this.setState({ active: false });
   }
 
-  render() {
+  renderText = (child) => {
     const { active } = this.state;
     const {
-      children,
-      onPress,
       basic,
       variant = 'default',
       loading,
-      disabled,
       style,
-      title,
       theme,
       className,
       textStyle,
       ...rest
     } = this.props;
-
-    renderText = () => (
+    return (
       <Text
         style={[
           theme.getStyles(getClassName('Elements.Button.text', { basic })),
@@ -83,7 +77,24 @@ class Button extends Component<Props, State> {
       >
         {child}
       </Text>
-    );
+    )
+  };
+
+  render() {
+    const { active } = this.state;
+    const {
+      children,
+      onPress,
+      basic,
+      variant = 'default',
+      loading,
+      disabled,
+      style,
+      theme,
+      className,
+      textStyle,
+      ...rest
+    } = this.props;
 
     return (
       <TouchableOpacity
@@ -107,7 +118,7 @@ class Button extends Component<Props, State> {
         ]}
         >
           {React.Children.map(children, child => typeof child === 'string'
-            ? this.renderText
+            ? this.renderText(child)
             : child
           )}
           { loading &&
@@ -129,7 +140,6 @@ Button.defaultProps = {
   loading: false,
   disabled: false,
   style: null,
-  title: null,
   className: null,
   textStyle: null,
 };
