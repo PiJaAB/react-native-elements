@@ -67,6 +67,24 @@ class Button extends Component<Props, State> {
       textStyle,
       ...rest
     } = this.props;
+
+    renderText = () => (
+      <Text
+        style={[
+          theme.getStyles(getClassName('Elements.Button.text', { basic })),
+          active && theme.getStyles(getClassName('Elements.Button.text', { basic, active })),
+          variant && theme.getStyles(getClassName('Elements.Button.text', { basic, variant, active })),
+          // TODO: integrate variants into "class" system, simplify
+          theme.getStyles(getClassName('Elements.Button.text', { basic }), className, true),
+          active && theme.getStyles(getClassName('Elements.Button.text', { basic, active }), className, true),
+          loading && theme.getStyles('Elements.Button.textLoading'),
+          textStyle,
+        ]}
+      >
+        {child}
+      </Text>
+    );
+
     return (
       <TouchableOpacity
         activeOpacity={1}
@@ -89,20 +107,7 @@ class Button extends Component<Props, State> {
         ]}
         >
           {React.Children.map(children, child => typeof child === 'string'
-            ? <Text
-              style={[
-                theme.getStyles(getClassName('Elements.Button.text', { basic })),
-                active && theme.getStyles(getClassName('Elements.Button.text', { basic, active })),
-                variant && theme.getStyles(getClassName('Elements.Button.text', { basic, variant, active })),
-                // TODO: integrate variants into "class" system, simplify
-                theme.getStyles(getClassName('Elements.Button.text', { basic }), className, true),
-                active && theme.getStyles(getClassName('Elements.Button.text', { basic, active }), className, true),
-                loading && theme.getStyles('Elements.Button.textLoading'),
-                textStyle,
-              ]}
-            >
-              {child}
-            </Text>
+            ? this.renderText
             : child
           )}
           { loading &&
