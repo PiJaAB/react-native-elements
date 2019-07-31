@@ -1,6 +1,6 @@
 {
   "name": "@pija-ab/react-native-elements",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "keywords": ["react-native", "components", "grid", "button", "theming"],
   "main": "index.js",
