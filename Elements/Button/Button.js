@@ -27,7 +27,6 @@ type Props = {
   loading?: boolean,
   disabled?: boolean,
   style?: mixed,
-  title?: string,
   className?: string | string[],
   theme: Theme,
   textStyle?: mixed,
@@ -51,6 +50,36 @@ class Button extends Component<Props, State> {
     this.setState({ active: false });
   }
 
+  renderText = (child) => {
+    const { active } = this.state;
+    const {
+      basic,
+      variant = 'default',
+      loading,
+      style,
+      theme,
+      className,
+      textStyle,
+      ...rest
+    } = this.props;
+    return (
+      <Text
+        style={[
+          theme.getStyles(getClassName('Elements.Button.text', { basic })),
+          active && theme.getStyles(getClassName('Elements.Button.text', { basic, active })),
+          variant && theme.getStyles(getClassName('Elements.Button.text', { basic, variant, active })),
+          // TODO: integrate variants into "class" system, simplify
+          theme.getStyles(getClassName('Elements.Button.text', { basic }), className, true),
+          active && theme.getStyles(getClassName('Elements.Button.text', { basic, active }), className, true),
+          loading && theme.getStyles('Elements.Button.textLoading'),
+          textStyle,
+        ]}
+      >
+        {child}
+      </Text>
+    )
+  };
+
   render() {
     const { active } = this.state;
     const {
@@ -61,12 +90,12 @@ class Button extends Component<Props, State> {
       loading,
       disabled,
       style,
-      title,
       theme,
       className,
       textStyle,
       ...rest
     } = this.props;
+
     return (
       <TouchableOpacity
         activeOpacity={1}
@@ -88,21 +117,10 @@ class Button extends Component<Props, State> {
           style,
         ]}
         >
-          <Text
-            style={[
-              theme.getStyles(getClassName('Elements.Button.text', { basic })),
-              active && theme.getStyles(getClassName('Elements.Button.text', { basic, active })),
-              variant && theme.getStyles(getClassName('Elements.Button.text', { basic, variant, active })),
-              // TODO: integrate variants into "class" system, simplify
-              theme.getStyles(getClassName('Elements.Button.text', { basic }), className, true),
-              active && theme.getStyles(getClassName('Elements.Button.text', { basic, active }), className, true),
-              loading && theme.getStyles('Elements.Button.textLoading'),
-              textStyle,
-            ]}
-          >
-            {title}
-            {children}
-          </Text>
+          {React.Children.map(children, child => typeof child === 'string'
+            ? this.renderText(child)
+            : child
+          )}
           { loading &&
           <LoadingIndicator
             loading={loading}
@@ -122,7 +140,6 @@ Button.defaultProps = {
   loading: false,
   disabled: false,
   style: null,
-  title: null,
   className: null,
   textStyle: null,
 };

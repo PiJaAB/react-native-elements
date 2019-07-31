@@ -145,10 +145,10 @@ After this has been done you should be good to go and use all of the building bl
 #### Common props
 Some common props that is available on all of the components
 
-| Prop        | Description                   | Type     |
-|-------------|-------------------------------|----------|
-| `style`     | Basic inline style            | `object` |
-| `className` | Sets class for your component | `string` |
+| Prop        | Description                   | Type                                                                  |
+|-------------|-------------------------------|-----------------------------------------------------------------------|
+| `style`     | Basic inline style            | [`style`](https://facebook.github.io/react-native/docs/style#docsNav) |
+| `className` | Sets class for your component | `string`                                                              |
 
 
 * [Button](#button)
@@ -165,12 +165,16 @@ Some common props that is available on all of the components
 * [SceneContainer](#sceneContainer)
 
 #### Button
-| Prop       | Description                                                          | Type       |
-|------------|----------------------------------------------------------------------|------------|
-| `variant`  | String that should be one of the defined colors in the color.js file | `string`   |
-| `onPress`  | Assigning button trigger                                             | `function` |
-| `loading`  | Shows a loading indicator in the middle of the button                | `boolean`  |
-| `disabled` | Disables the button                                                  | `boolean`  |
+| Prop        | Description                                                          | Type                                                                          |
+|-------------|----------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| `variant`   | String that should be one of the defined colors in the color.js file | `string`                                                                      |
+| `onPress`   | Assigning button trigger                                             | `function`                                                                    |
+| `loading`   | Shows a loading indicator in the middle of the button                | `boolean`                                                                     |
+| `disabled`  | Disables the button                                                  | `boolean`                                                                     |
+| `textStyle` | Basic inline styling                                                 | [`text style`](https://facebook.github.io/react-native/docs/text-style-props) |
+
+Button will take strings and React components as children, any string will be wrapped in a text component and the rest will just be rendered as is.
+
 ```js
 import { Button } from '@pija-ab/react-native-elements';
 ...
@@ -179,6 +183,18 @@ import { Button } from '@pija-ab/react-native-elements';
   onPress={() => console.log('button has been triggered')}
 >
 String
+</Button>
+...
+```
+```js
+...
+<Button
+  variant="primary"
+  onPress={() => console.log('button has been triggered')}
+>
+  <View>
+    <Text>String</Text>
+  </View>
 </Button>
 ...
 ```
