@@ -165,12 +165,16 @@ Some common props that is available on all of the components
 * [SceneContainer](#sceneContainer)
 
 #### Button
-| Prop       | Description                                                          | Type       |
+| Prop        | Description                                                          | Type       |
 |------------|----------------------------------------------------------------------|------------|
-| `variant`  | String that should be one of the defined colors in the color.js file | `string`   |
-| `onPress`  | Assigning button trigger                                             | `function` |
-| `loading`  | Shows a loading indicator in the middle of the button                | `boolean`  |
-| `disabled` | Disables the button                                                  | `boolean`  |
+| `variant`   | String that should be one of the defined colors in the color.js file | `string`   |
+| `onPress`   | Assigning button trigger                                             | `function` |
+| `loading`   | Shows a loading indicator in the middle of the button                | `boolean`  |
+| `disabled`  | Disables the button                                                  | `boolean`  |
+| `textStyle` | Basic inline styling                                                 | `boolean`  |
+
+Button can either take a `string`, one or multiple React components as a child.
+
 ```js
 import { Button } from '@pija-ab/react-native-elements';
 ...
@@ -179,6 +183,18 @@ import { Button } from '@pija-ab/react-native-elements';
   onPress={() => console.log('button has been triggered')}
 >
 String
+</Button>
+...
+```
+```js
+...
+<Button
+  variant="primary"
+  onPress={() => console.log('button has been triggered')}
+>
+  <View>
+    <Text>String</Text>
+  </View>
 </Button>
 ...
 ```

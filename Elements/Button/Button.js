@@ -88,21 +88,23 @@ class Button extends Component<Props, State> {
           style,
         ]}
         >
-          <Text
-            style={[
-              theme.getStyles(getClassName('Elements.Button.text', { basic })),
-              active && theme.getStyles(getClassName('Elements.Button.text', { basic, active })),
-              variant && theme.getStyles(getClassName('Elements.Button.text', { basic, variant, active })),
-              // TODO: integrate variants into "class" system, simplify
-              theme.getStyles(getClassName('Elements.Button.text', { basic }), className, true),
-              active && theme.getStyles(getClassName('Elements.Button.text', { basic, active }), className, true),
-              loading && theme.getStyles('Elements.Button.textLoading'),
-              textStyle,
-            ]}
-          >
-            {title}
-            {children}
-          </Text>
+          {React.Children.map(children, child => typeof child === 'string'
+            ? <Text
+              style={[
+                theme.getStyles(getClassName('Elements.Button.text', { basic })),
+                active && theme.getStyles(getClassName('Elements.Button.text', { basic, active })),
+                variant && theme.getStyles(getClassName('Elements.Button.text', { basic, variant, active })),
+                // TODO: integrate variants into "class" system, simplify
+                theme.getStyles(getClassName('Elements.Button.text', { basic }), className, true),
+                active && theme.getStyles(getClassName('Elements.Button.text', { basic, active }), className, true),
+                loading && theme.getStyles('Elements.Button.textLoading'),
+                textStyle,
+              ]}
+            >
+              {child}
+            </Text>
+            : child
+          )}
           { loading &&
           <LoadingIndicator
             loading={loading}
