@@ -386,7 +386,7 @@ import { Message } from '@pija-ab/react-native-elements';
 ...
 ```
 
-#### Paragrah
+#### paragraph
 | Prop            | Description                                    | Type      |
 |-----------------|------------------------------------------------|-----------|
 | `textAlign`     | Takes one of either `left` `center` `right`    | `string`  |
