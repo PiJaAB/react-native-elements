@@ -26,7 +26,7 @@ const Divider = ({
     ]}
     {...rest}
   >
-    <View style={theme.getStyles('Elements.Divider.dividerLine')} />
+    <View style={[theme.getStyles('Elements.Divider.dividerLine'), style]} />
     {children && <Text style={theme.getStyles('Elements.Divider.dividerText')}>{children}</Text>}
     {children && <View style={theme.getStyles('Elements.Divider.dividerLine')} />}
   </View>
