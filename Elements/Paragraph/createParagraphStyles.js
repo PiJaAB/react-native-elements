@@ -5,7 +5,6 @@ import {unit} from '../../Theme';
 export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
   paragraph: {
     color: colors.text,
-    ...fonts.text,
     fontSize: dimensions.baseSize * unit(12),
     ...font({
       fontFamily: fonts.primary.fontFamily,
