@@ -70,7 +70,7 @@ export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
   },
 
   inverted: {
-    color: colors.inverted,
+    color: colors.inverted|| 'white',
   },
 
   marginBottom: {
