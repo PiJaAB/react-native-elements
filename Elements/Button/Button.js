@@ -93,6 +93,7 @@ class Button extends Component<Props, State> {
       theme,
       className,
       textStyle,
+      touchableStyle,
       ...rest
     } = this.props;
 
@@ -103,6 +104,7 @@ class Button extends Component<Props, State> {
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
         onPress={onPress}
+        style={[touchableStyle]}
         {...rest}
       >
         <View style={theme.getStyles('Elements.Button.shadow', className)} />
