@@ -1,6 +1,5 @@
 // @flow
-import React from 'react';
-import type { Node } from 'react';
+import React, { type Node } from 'react';
 import compose from '../../Theme/utilities/compose';
 import { View, ScrollView } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -79,7 +78,7 @@ function Container({
     lastChild: index === childrenCount - 1,
   });
   const transformedChildren = React.Children.map(children, (child, i) =>
-    (child.type === Fill ? React.cloneElement(child, getFillProps(i)) : child));
+    (child && child.type === Fill ? React.cloneElement(child, getFillProps(i)) : child));
 
   // Render as appropriate (as View, ScrollView, or KeyboardAwareScrollView)
   const scrollViewProps = {
