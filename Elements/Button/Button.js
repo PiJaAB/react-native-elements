@@ -1,11 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 import compose from '../../Theme/utilities/compose';
-import { TouchableOpacity, Text, View } from 'react-native';
+import { TouchableOpacity, Text, View, ActivityIndicator } from 'react-native';
 import { Theme, withTheme } from '../../Theme';
 import camelCaseJoin from '../../Theme/utilities/camelCaseJoin';
-
-import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 
 type GetClassNameParams = {
   name: string,
@@ -30,6 +28,7 @@ type Props = {
   className?: string | string[],
   theme: Theme,
   textStyle?: mixed,
+  loadingIndicatorColor: string,
 };
 
 type State = {
@@ -88,6 +87,7 @@ class Button extends Component<Props, State> {
       basic,
       variant = 'default',
       loading,
+      loadingIndicatorColor,
       disabled,
       style,
       theme,
@@ -100,7 +100,7 @@ class Button extends Component<Props, State> {
     return (
       <TouchableOpacity
         activeOpacity={1}
-        disabled={disabled}
+        disabled={disabled || loading}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
         onPress={onPress}
@@ -119,16 +119,14 @@ class Button extends Component<Props, State> {
           style,
         ]}
         >
-          {React.Children.map(children, child => typeof child === 'string'
-            ? this.renderText(child)
-            : child
-          )}
-          { loading &&
-          <LoadingIndicator
-            loading={loading}
-            nonBasic={!basic}
-            size="button"
-          /> }
+          {loading ? 
+              <ActivityIndicator color={loadingIndicatorColor}/>
+            :  
+              React.Children.map(children, child => typeof child === 'string'
+                ? this.renderText(child)
+                : child
+              )
+           }
         </View>
       </TouchableOpacity>
     );
@@ -140,6 +138,7 @@ Button.defaultProps = {
   children: null,
   variant: 'default',
   loading: false,
+  loadingIndicatorColor: undefined,
   disabled: false,
   style: null,
   className: null,
