@@ -1,8 +1,14 @@
 {
   "name": "@pijaab/react-native-elements",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "",
-  "keywords": ["react-native", "components", "grid", "button", "theming"],
+  "keywords": [
+    "react-native",
+    "components",
+    "grid",
+    "button",
+    "theming"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/PiJaAB/react-native-elements/issues"
   },
-  "homepage": "https://github.com/PiJaAB/react-native-elements#readme"
+  "homepage": "https://github.com/PiJaAB/react-native-elements#readme",
+  "dependencies": {
+    "react-native-keyboard-aware-scroll-view": "^0.9.1"
+  }
 }
