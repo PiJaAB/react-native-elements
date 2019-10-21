@@ -1,5 +1,5 @@
 {
-  "name": "@pijaab/react-native-elements",
+  "name": "@pija-ab/react-native-elements",
   "version": "0.1.10",
   "description": "",
   "keywords": ["react-native", "components", "grid", "button", "theming"],
@@ -10,9 +10,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PiJaAB/react-native-elements.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "author": "",
   "license": "ISC",
