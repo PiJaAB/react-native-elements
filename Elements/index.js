@@ -10,4 +10,5 @@ export { default as LoadingIndicator } from './LoadingIndicator/LoadingIndicator
 export { default as Message } from './Message/Message';
 export { default as Paragraph } from './Paragraph/Paragraph';
 export { default as FormInput } from './FormInput/FormInput';
+export { default as SceneContainer } from './SceneContainer/SceneContainer';
 export { default as createStyleSheets } from './theme/createStyleSheets';
