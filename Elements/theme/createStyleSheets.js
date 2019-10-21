@@ -8,6 +8,7 @@ import createDividerStyles from '../Divider/createDividerStyles';
 import createGridStyles from '../Grid/createGridStyles';
 import createHeaderStyles from '../Header/createHeaderStyles';
 import createParagraphStyles from '../Paragraph/createParagraphStyles';
+import createSceneContainerStyles from '../SceneContainer/createSceneContainerStyles';
 import createFormInputStyles from '../FormInput/createFormInputStyles';
 import createLinkStyles from '../Link/createLinkStyles';
 
@@ -18,6 +19,7 @@ export default (spec: ThemeSpec) => ({
   'Elements.Grid': StyleSheet.create(createGridStyles(spec)),
   'Elements.Header': StyleSheet.create(createHeaderStyles(spec)),
   'Elements.Paragraph': StyleSheet.create(createParagraphStyles(spec)),
+  'Elements.SceneContainer': StyleSheet.create(createSceneContainerStyles(spec)),
   'Elements.FormInput': StyleSheet.create(createFormInputStyles(spec)),
   'Elements.Link': StyleSheet.create(createLinkStyles(spec)),
 });
