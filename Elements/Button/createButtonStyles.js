@@ -36,6 +36,10 @@ export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
   textLoading: {
     opacity: 0,
   },
+  textActive: {
+    opacity: 0.5,
+  },
+
 
   ...createButtonVariantStyles({
     name: 'Default',
