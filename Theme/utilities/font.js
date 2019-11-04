@@ -8,7 +8,7 @@ export type Props = {
 };
 
 const font = (spec, {
-  fontFamily = spec.fonts.primary,
+  fontFamily = spec.fonts.primary.fontFamily,
   fontWeight = '400',
   fontStyle = 'normal',
 }: Props) => {
