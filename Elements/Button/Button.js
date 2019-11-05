@@ -97,6 +97,15 @@ class Button extends Component<Props, State> {
       ...rest
     } = this.props;
 
+    const renderChildren = () => {
+      if (typeof children === 'function') {
+        return children({ active });
+      }
+      return React.Children.map(children, child =>
+        typeof child === 'string' ? this.renderText(child) : child,
+      );
+    };
+
     return (
       <TouchableOpacity
         activeOpacity={1}
@@ -122,10 +131,7 @@ class Button extends Component<Props, State> {
           {loading ? 
               <ActivityIndicator color={loadingIndicatorColor}/>
             :  
-              React.Children.map(children, child => typeof child === 'string'
-                ? this.renderText(child)
-                : child
-              )
+              renderChildren({ active })
            }
         </View>
       </TouchableOpacity>
