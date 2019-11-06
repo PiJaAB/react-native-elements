@@ -6,16 +6,18 @@ import LoadingIndicatorStyles from './LoadingIndicatorStyles';
 
 type Props = {
   loading: boolean,
-  size?: "button" | "medium",
+  size?: 'button' | 'medium',
   nonBasic?: boolean,
   absolute?: boolean,
   centered?: boolean,
-}
+};
 
-const getLoadingIndicatorSizeStyle = (size) => {
+const getLoadingIndicatorSizeStyle = size => {
   switch (size) {
-    case 'button': return LoadingIndicatorStyles.loadingIndicatorSizeButton;
-    default: return null;
+    case 'button':
+      return LoadingIndicatorStyles.loadingIndicatorSizeButton;
+    default:
+      return null;
   }
 };
 
@@ -30,30 +32,25 @@ class LoadingIndicator extends Component<Props> {
 
   loadingIndicatorRotation = () => {
     this.loadingIndicatorRotationValue.setValue(0);
-    Animated.timing(
-      this.loadingIndicatorRotationValue,
-      {
-        toValue: 1,
-        duration: 600,
-        easing: Easing.linear,
-      },
-    ).start(() => this.loadingIndicatorRotation());
-  }
+    Animated.timing(this.loadingIndicatorRotationValue, {
+      toValue: 1,
+      duration: 600,
+      easing: Easing.linear,
+    }).start(() => this.loadingIndicatorRotation());
+  };
 
   render() {
-    const {
-      loading,
-      size,
-      nonBasic,
-      absolute,
-      centered,
-    } = this.props;
-    if (!loading) return null;
+    const { loading, size, nonBasic, absolute, centered } = this.props;
+    if (!loading) {
+      return null;
+    }
 
-    const loadingIndicatorRotation = this.loadingIndicatorRotationValue.interpolate({
-      inputRange: [0, 1],
-      outputRange: ['0deg', '360deg'],
-    });
+    const loadingIndicatorRotation = this.loadingIndicatorRotationValue.interpolate(
+      {
+        inputRange: [0, 1],
+        outputRange: ['0deg', '360deg'],
+      },
+    );
 
     return (
       <Animated.View
@@ -62,7 +59,9 @@ class LoadingIndicator extends Component<Props> {
           getLoadingIndicatorSizeStyle(size),
           nonBasic && LoadingIndicatorStyles.loadingIndicatorNonBasic,
           absolute && LoadingIndicatorStyles.loadingIndicatorAbsolute,
-          (!absolute && centered) && LoadingIndicatorStyles.loadingIndicatorCentered,
+          !absolute &&
+            centered &&
+            LoadingIndicatorStyles.loadingIndicatorCentered,
           { transform: [{ rotate: loadingIndicatorRotation }] },
         ]}
       />

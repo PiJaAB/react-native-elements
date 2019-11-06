@@ -7,7 +7,7 @@ import ThemeContext from './ThemeContext';
 export default function withTheme<T: {}>(Comp: ComponentType<T>) {
   const WrappedComp = (props: T) => (
     <ThemeContext.Consumer>
-      { theme => <Comp theme={theme} {...props} /> }
+      {theme => <Comp theme={theme} {...props} />}
     </ThemeContext.Consumer>
   );
   WrappedComp.displayName = `withTheme(${Comp.displayName || Comp.name})`;

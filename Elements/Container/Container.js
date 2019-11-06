@@ -13,22 +13,30 @@ type FillProps = {
   firstChild?: boolean,
   lastChild?: boolean,
   style?: mixed,
-}
+};
 
 function Fill({
-  children, theme, firstChild, lastChild, style, className, ...rest
+  children,
+  theme,
+  firstChild,
+  lastChild,
+  style,
+  className,
+  ...rest
 }: FillProps) {
   return (
     <View
       style={[
         theme.getStyles('Elements.Container.fill', className),
-        firstChild && theme.getStyles('Elements.Container.fillFirstChild', className),
-        lastChild && theme.getStyles('Elements.Container.fillLastChild', className),
+        firstChild &&
+          theme.getStyles('Elements.Container.fillFirstChild', className),
+        lastChild &&
+          theme.getStyles('Elements.Container.fillLastChild', className),
         style,
       ]}
       {...rest}
     >
-      { children }
+      {children}
     </View>
   );
 }
@@ -52,7 +60,7 @@ type Props = {
   style?: mixed,
   className?: string | string[],
   theme: Theme,
-}
+};
 
 function Container({
   children,
@@ -78,21 +86,32 @@ function Container({
     lastChild: index === childrenCount - 1,
   });
   const transformedChildren = React.Children.map(children, (child, i) =>
-    (child && child.type === Fill ? React.cloneElement(child, getFillProps(i)) : child));
+    child && child.type === Fill
+      ? React.cloneElement(child, getFillProps(i))
+      : child,
+  );
 
   // Render as appropriate (as View, ScrollView, or KeyboardAwareScrollView)
   const scrollViewProps = {
     style: theme.getStyles('Elements.Container.baseScroll', className),
     contentContainerStyle: containerStylesList,
-    alwaysBounceVertical: (scrollable === true),
+    alwaysBounceVertical: scrollable === true,
   };
 
   if (scrollable === false) {
-    return <View style={containerStylesList} {...rest}>{ transformedChildren }</View>;
+    return (
+      <View style={containerStylesList} {...rest}>
+        {transformedChildren}
+      </View>
+    );
   }
 
   if (!keyboardAware) {
-    return <ScrollView {...scrollViewProps} {...rest}>{ transformedChildren }</ScrollView>;
+    return (
+      <ScrollView {...scrollViewProps} {...rest}>
+        {transformedChildren}
+      </ScrollView>
+    );
   }
 
   const keyboardAwareScrollViewProps = {
@@ -103,7 +122,7 @@ function Container({
   };
   return (
     <KeyboardAwareScrollView {...keyboardAwareScrollViewProps}>
-      { transformedChildren }
+      {transformedChildren}
     </KeyboardAwareScrollView>
   );
 }

@@ -1,6 +1,6 @@
 // @flow
 import type ThemeSpec from '../../Theme';
-import {unit} from '../../Theme';
+import { unit } from '../../Theme';
 
 import createButtonVariantStyles from './createButtonVariantStyles';
 
@@ -15,8 +15,8 @@ export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
   baseBasic: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: (dimensions.baseSize * unit(11)) - 1,
-    paddingHorizontal: (dimensions.baseSize * unit(21)) - 1,
+    paddingVertical: dimensions.baseSize * unit(11) - 1,
+    paddingHorizontal: dimensions.baseSize * unit(21) - 1,
     backgroundColor: 'transparent',
     borderWidth: 1,
   },
@@ -39,7 +39,6 @@ export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
   textActive: {
     opacity: 0.5,
   },
-
 
   ...createButtonVariantStyles({
     name: 'Default',

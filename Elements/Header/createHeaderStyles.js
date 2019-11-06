@@ -1,6 +1,6 @@
 // @flow
 import type ThemeSpec from '../../Theme';
-import {unit} from '../../Theme';
+import { unit } from '../../Theme';
 
 export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
   header: {
@@ -70,7 +70,7 @@ export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
   },
 
   inverted: {
-    color: colors.inverted|| 'white',
+    color: colors.inverted || 'white',
   },
 
   marginBottom: {

@@ -7,11 +7,14 @@ export type Props = {
   fontStyle?: 'normal' | 'italic',
 };
 
-const font = (spec, {
-  fontFamily = spec.fonts.primary.fontFamily,
-  fontWeight = '400',
-  fontStyle = 'normal',
-}: Props) => {
+const font = (
+  spec,
+  {
+    fontFamily = spec.fonts.primary.fontFamily,
+    fontWeight = '400',
+    fontStyle = 'normal',
+  }: Props,
+) => {
   if (Platform.OS === 'android') {
     return {
       fontFamily: spec.getFontName(fontFamily, fontWeight, fontStyle),

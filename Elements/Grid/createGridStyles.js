@@ -52,5 +52,4 @@ export default ({ dimensions }: ThemeSpec) => ({
   cellExtraLarge: {
     padding: dimensions.baseSize * 2,
   },
-
 });

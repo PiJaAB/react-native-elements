@@ -8,27 +8,21 @@ import messageStyles from './MessageStyles';
 
 type Props = {
   children: mixed,
-  variant?: "error",
+  variant?: 'error',
   lastChild?: boolean,
 };
 
-const Message = ({
-  children,
-  variant,
-  lastChild,
-}: Props) => (
+const Message = ({ children, variant, lastChild }: Props) => (
   <View
     style={[
       messageStyles.message,
       lastChild && messageStyles.messageLastChild,
-      (variant === 'error') && messageStyles.messageError,
+      variant === 'error' && messageStyles.messageError,
     ]}
   >
     <Paragraph
       lastChild
-      style={[
-        (variant === 'error') && messageStyles.messageParagraphError,
-      ]}
+      style={[variant === 'error' && messageStyles.messageParagraphError]}
     >
       {children}
     </Paragraph>

@@ -7,21 +7,25 @@ import { Theme, withTheme } from '../../Theme';
 import camelCaseJoin from '../../Theme/utilities/camelCaseJoin';
 import withStatics from '../../Theme/utilities/withStatics';
 
-const passOnProps = ({ size }) => child => (
+const passOnProps = ({ size }) => child =>
   child && child.props && child.props.size === undefined
     ? React.cloneElement(child, { size })
-    : child
-);
-
+    : child;
 
 type CellProps = {
   children: mixed,
-  size?: "collapsed" | "small" | "medium" | "large" | "extraLarge",
+  size?: 'collapsed' | 'small' | 'medium' | 'large' | 'extraLarge',
   column?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
   flexGrow?: number,
   flexShrink?: number,
   flexBasis?: number | string,
-  alignSelf?: "auto" | "flex-start" | "flex-end" | "center" | "stretch" | "baseline",
+  alignSelf?:
+    | 'auto'
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'stretch'
+    | 'baseline',
   style?: mixed,
   className?: string | string[],
   theme: Theme,
@@ -66,14 +70,25 @@ Cell.defaultProps = {
   className: null,
 };
 
-
 type GridProps = {
   children: mixed,
-  size?: "collapsed" | "small" | "medium" | "large" | "extraLarge",
-  flexWrap?: "wrap" | "nowrap",
-  alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline",
-  alignContent?: "flex-start" | "flex-end" | "center" | "stretch" | "space-between" | "space-around",
-  justifyContent?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly",
+  size?: 'collapsed' | 'small' | 'medium' | 'large' | 'extraLarge',
+  flexWrap?: 'wrap' | 'nowrap',
+  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline',
+  alignContent?:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'stretch'
+    | 'space-between'
+    | 'space-around',
+  justifyContent?:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly',
   style?: mixed,
   className?: string | string[],
   theme: Theme,
@@ -114,7 +129,6 @@ Grid.defaultProps = {
   style: {},
   className: null,
 };
-
 
 export default compose(
   withStatics({

@@ -2,8 +2,7 @@
 import type { ThemeSpec } from '../../Theme';
 
 export default ({ dimensions }: ThemeSpec) => ({
-  baseScroll: {
-  },
+  baseScroll: {},
   base: {
     padding: dimensions.baseSize,
   },

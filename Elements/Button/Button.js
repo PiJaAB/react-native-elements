@@ -11,17 +11,25 @@ type GetClassNameParams = {
   active?: boolean,
   variant?: string,
 };
-const getClassName = (baseName, {
-  basic = false, active = false, variant,
-  // $FlowFixMe: figure out how to express this in a typesafe way
-  // $FlowFixMe: ([name, ...].filter(Boolean) should end up as string[])
-}: GetClassNameParams) => camelCaseJoin([baseName, basic && 'basic', variant, active && 'active'].filter(Boolean));
+const getClassName = (
+  baseName,
+  { basic = false, active = false, variant }: GetClassNameParams,
+) =>
+  camelCaseJoin(
+    [baseName, basic && 'basic', variant, active && 'active'].filter(Boolean),
+  );
 
 type Props = {
   children?: mixed,
   onPress: Function,
   basic?: boolean,
-  variant?: "default" | "primary" | "positive" | "negative" | "message" | "facebook",
+  variant?:
+    | 'default'
+    | 'primary'
+    | 'positive'
+    | 'negative'
+    | 'message'
+    | 'facebook',
   loading?: boolean,
   disabled?: boolean,
   style?: mixed,
@@ -40,43 +48,56 @@ class Button extends Component<Props, State> {
 
   state = {
     active: false,
-  }
+  };
 
   onPressIn = () => {
     this.setState({ active: true });
-  }
+  };
   onPressOut = () => {
     this.setState({ active: false });
-  }
+  };
 
-  renderText = (child) => {
+  renderText = child => {
     const { active } = this.state;
     const {
       basic,
       variant = 'default',
       loading,
-      style,
       theme,
       className,
       textStyle,
-      ...rest
     } = this.props;
     return (
       <Text
         style={[
           theme.getStyles(getClassName('Elements.Button.text', { basic })),
-          active && theme.getStyles(getClassName('Elements.Button.text', { basic, active })),
-          variant && theme.getStyles(getClassName('Elements.Button.text', { basic, variant, active })),
+          active &&
+            theme.getStyles(
+              getClassName('Elements.Button.text', { basic, active }),
+            ),
+          variant &&
+            theme.getStyles(
+              getClassName('Elements.Button.text', { basic, variant, active }),
+            ),
           // TODO: integrate variants into "class" system, simplify
-          theme.getStyles(getClassName('Elements.Button.text', { basic }), className, true),
-          active && theme.getStyles(getClassName('Elements.Button.text', { basic, active }), className, true),
+          theme.getStyles(
+            getClassName('Elements.Button.text', { basic }),
+            className,
+            true,
+          ),
+          active &&
+            theme.getStyles(
+              getClassName('Elements.Button.text', { basic, active }),
+              className,
+              true,
+            ),
           loading && theme.getStyles('Elements.Button.textLoading'),
           textStyle,
         ]}
       >
         {child}
       </Text>
-    )
+    );
   };
 
   render() {
@@ -117,22 +138,42 @@ class Button extends Component<Props, State> {
         {...rest}
       >
         <View style={theme.getStyles('Elements.Button.shadow', className)} />
-        <View style={[
-          theme.getStyles(getClassName('Elements.Button.base', { basic })),
-          active && theme.getStyles(getClassName('Elements.Button.base', { basic, active })),
-          variant && theme.getStyles(getClassName('Elements.Button.base', { basic, variant, active })),
-          // TODO: integrate variants into "class" system, simplify
-          theme.getStyles(getClassName('Elements.Button.base', { basic }), className, true),
-          active && theme.getStyles(getClassName('Elements.Button.base', { basic, active }), className, true),
-          disabled && theme.getStyles('Elements.Button.baseDisabled'),
-          style,
-        ]}
+        <View
+          style={[
+            theme.getStyles(getClassName('Elements.Button.base', { basic })),
+            active &&
+              theme.getStyles(
+                getClassName('Elements.Button.base', { basic, active }),
+              ),
+            variant &&
+              theme.getStyles(
+                getClassName('Elements.Button.base', {
+                  basic,
+                  variant,
+                  active,
+                }),
+              ),
+            // TODO: integrate variants into "class" system, simplify
+            theme.getStyles(
+              getClassName('Elements.Button.base', { basic }),
+              className,
+              true,
+            ),
+            active &&
+              theme.getStyles(
+                getClassName('Elements.Button.base', { basic, active }),
+                className,
+                true,
+              ),
+            disabled && theme.getStyles('Elements.Button.baseDisabled'),
+            style,
+          ]}
         >
-          {loading ? 
-              <ActivityIndicator color={loadingIndicatorColor}/>
-            :  
-              renderChildren({ active })
-           }
+          {loading ? (
+            <ActivityIndicator color={loadingIndicatorColor} />
+          ) : (
+            renderChildren({ active })
+          )}
         </View>
       </TouchableOpacity>
     );
@@ -151,6 +192,4 @@ Button.defaultProps = {
   textStyle: null,
 };
 
-export default compose(
-  withTheme,
-)(Button);
+export default compose(withTheme)(Button);
