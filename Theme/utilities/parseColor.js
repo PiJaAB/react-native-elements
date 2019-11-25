@@ -20,7 +20,9 @@ function parseHSL(spec) {
     throw new SyntaxError(`Not a HSL color string: '${spec}'`);
   }
 
-  const [hue, saturation, lightness, alpha = 1.0] = hslParams.map(str => parseFloat(str));
+  const [hue, saturation, lightness, alpha = 1.0] = hslParams.map(str =>
+    parseFloat(str),
+  );
   return { type: 'hsla', fields: [hue, saturation, lightness, alpha] };
 }
 
@@ -33,10 +35,15 @@ const rgbaPattern = /^rgba\(([\d.]+), ([\d.]+), ([\d.]+), ([\d.]+)\)$/;
 function parseRGB(spec) {
   let rgbParams = null;
   if (hash3Pattern.test(spec)) {
-    rgbParams = spec.slice(1).split('').map(ch => parseInt(ch + ch, 16));
+    rgbParams = spec
+      .slice(1)
+      .split('')
+      .map(ch => parseInt(ch + ch, 16));
   }
   if (hash6Pattern.test(spec) || hash8Pattern.test(spec)) {
-    rgbParams = (spec.slice(1).match(/[0-9a-fA-F]{2}/g) || []).map(str => parseInt(str, 16));
+    rgbParams = (spec.slice(1).match(/[0-9a-fA-F]{2}/g) || []).map(str =>
+      parseInt(str, 16),
+    );
   }
   if (rgbPattern.test(spec)) {
     rgbParams = rgbPattern.exec(spec).slice(1);
@@ -49,7 +56,9 @@ function parseRGB(spec) {
     throw new SyntaxError(`Not a RGB color string: '${spec}'`);
   }
 
-  const [red = 0, green = 0, blue = 0, alpha = 1.0] = rgbParams.map(str => parseFloat(str));
+  const [red = 0, green = 0, blue = 0, alpha = 1.0] = rgbParams.map(str =>
+    parseFloat(str),
+  );
   return { type: 'rgba', fields: [red, green, blue, alpha] };
 }
 
@@ -59,4 +68,4 @@ function parseRGB(spec) {
  * formats: hex (3, 6, 8 chars), rgb, rgba, hsl, hsla, named colours.
  */
 export default (spec: string): Color =>
-  (spec.startsWith('hsl') ? parseHSL(spec) : parseRGB(namedColors[spec] || spec));
+  spec.startsWith('hsl') ? parseHSL(spec) : parseRGB(namedColors[spec] || spec);

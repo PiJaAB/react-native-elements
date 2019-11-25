@@ -29,8 +29,13 @@ export default class Theme {
    * Chainable.
    */
   addStyleSheet(path: string, styleSheet: StyleSheet) {
-    if (typeof path !== 'string' || !(styleSheet != null && typeof styleSheet === 'object')) {
-      throw new Error('Theme.addStyleSheet: expected path to be a string and styleSheet to be an object');
+    if (
+      typeof path !== 'string' ||
+      !(styleSheet != null && typeof styleSheet === 'object')
+    ) {
+      throw new Error(
+        'Theme.addStyleSheet: expected path to be a string and styleSheet to be an object',
+      );
     }
     const map = this.styleSheetMap;
     const styleSheets = map.get(path) || [];
@@ -42,7 +47,9 @@ export default class Theme {
   /** Add several path => stylesheet mappings at once.  Chainable. */
   addStyleSheets(map: { [string]: StyleSheet }) {
     if (map == null || typeof map !== 'object') {
-      throw new Error('Theme.addStyleSheets: expected object mapping path => stylesheet');
+      throw new Error(
+        'Theme.addStyleSheets: expected object mapping path => stylesheet',
+      );
     }
     Object.keys(map).forEach(path => this.addStyleSheet(path, map[path]));
     return this;
@@ -56,7 +63,11 @@ export default class Theme {
    * would return styling for the 'base' subcomponent of Elements.Button, for
    * classes (none), 'foo', 'bar' (in that order).
    */
-  getStyles(path: string, classNames: string | string[] = '', omitNullClassName: boolean = false) {
+  getStyles(
+    path: string,
+    classNames: string | string[] = '',
+    omitNullClassName: boolean = false,
+  ) {
     const map = this.styleSheetMap;
     const pathComponents = path.split('.');
 
@@ -64,15 +75,24 @@ export default class Theme {
     const subcomponentName = pathComponents.slice(-1)[0];
     const componentSheets = map.get(basePath) || [];
 
-    const classNamesArray = (Array.isArray(classNames) ? classNames.join(' ') : classNames || '').match(/[-\w]+/g) || [];
+    const classNamesArray =
+      (Array.isArray(classNames)
+        ? classNames.join(' ')
+        : classNames || ''
+      ).match(/[-\w]+/g) || [];
 
     const styles = [];
-    [...(omitNullClassName ? [] : [null]), ...classNamesArray].forEach((className) => {
-      componentSheets.forEach((styleSheet) => {
-        const lookupName = className == null ? subcomponentName : `${subcomponentName}.${className}`;
-        styles.push(styleSheet[lookupName]);
-      });
-    });
+    [...(omitNullClassName ? [] : [null]), ...classNamesArray].forEach(
+      className => {
+        componentSheets.forEach(styleSheet => {
+          const lookupName =
+            className == null
+              ? subcomponentName
+              : `${subcomponentName}.${className}`;
+          styles.push(styleSheet[lookupName]);
+        });
+      },
+    );
     return styles;
   }
 }

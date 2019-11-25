@@ -17,7 +17,10 @@ export default (colorSpec: string, ratio: number) => {
     }
     case 'hsla': {
       const [h, s, l, a] = color.fields;
-      return stringifyColor({ type: 'hsla', fields: [h, s, l * (1.0 - ratio), a] });
+      return stringifyColor({
+        type: 'hsla',
+        fields: [h, s, l * (1.0 - ratio), a],
+      });
     }
     default:
       throw new Error('Not a valid color');

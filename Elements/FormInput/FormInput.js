@@ -17,7 +17,7 @@ type Props = TextInputProps & {
   placeholderTextColor: string,
   className?: string | string[],
   theme: Theme,
-}
+};
 
 const FormInput = ({
   onSubmit,
@@ -44,6 +44,4 @@ FormInput.defaultProps = {
   className: null,
 };
 
-export default compose(
-  withTheme,
-)(FormInput);
+export default compose(withTheme)(FormInput);

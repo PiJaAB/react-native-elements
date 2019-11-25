@@ -10,7 +10,7 @@ type Props = {
   style?: mixed,
   lineStyle?: mixed,
   theme: Theme,
-}
+};
 
 const Divider = ({
   children,
@@ -28,9 +28,19 @@ const Divider = ({
     ]}
     {...rest}
   >
-    <View style={[theme.getStyles('Elements.Divider.dividerLine'), lineStyle]} />
-    {children && <Text style={theme.getStyles('Elements.Divider.dividerText')}>{children}</Text>}
-    {children && <View style={[theme.getStyles('Elements.Divider.dividerLine'), lineStyle]} />}
+    <View
+      style={[theme.getStyles('Elements.Divider.dividerLine'), lineStyle]}
+    />
+    {children && (
+      <Text style={theme.getStyles('Elements.Divider.dividerText')}>
+        {children}
+      </Text>
+    )}
+    {children && (
+      <View
+        style={[theme.getStyles('Elements.Divider.dividerLine'), lineStyle]}
+      />
+    )}
   </View>
 );
 
@@ -38,10 +48,7 @@ Divider.defaultProps = {
   children: false,
   fitted: false,
   style: null,
-  style: null,
   lineStyle: null,
 };
 
-export default compose(
-  withTheme,
-)(Divider);
+export default compose(withTheme)(Divider);

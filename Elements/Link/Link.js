@@ -28,14 +28,14 @@ class Link extends Component<Props, State> {
 
   state = {
     active: false,
-  }
+  };
 
   onPressIn = () => {
     this.setState({ active: true });
-  }
+  };
   onPressOut = () => {
     this.setState({ active: false });
-  }
+  };
 
   render() {
     const {
@@ -55,12 +55,14 @@ class Link extends Component<Props, State> {
     return (
       <TouchableOpacity
         style={[
-        theme.getStyles('Elements.Link.base', className),
-        this.state.active && theme.getStyles('Elements.Link.baseActive', className),
-        disabled && theme.getStyles('Elements.Link.baseDisabled', className),
-        buttonUnderline && theme.getStyles('Elements.Link.buttonUnderline', className),
-        style,
-      ]}
+          theme.getStyles('Elements.Link.base', className),
+          this.state.active &&
+            theme.getStyles('Elements.Link.baseActive', className),
+          disabled && theme.getStyles('Elements.Link.baseDisabled', className),
+          buttonUnderline &&
+            theme.getStyles('Elements.Link.buttonUnderline', className),
+          style,
+        ]}
         activeOpacity={1}
         disabled={disabled}
         onPressIn={this.onPressIn}
@@ -71,8 +73,10 @@ class Link extends Component<Props, State> {
         <Text
           style={[
             theme.getStyles('Elements.Link.text', className),
-            this.state.active && theme.getStyles('Elements.Link.textActive', className),
-            disabled && theme.getStyles('Elements.Link.textDisabled', className),
+            this.state.active &&
+              theme.getStyles('Elements.Link.textActive', className),
+            disabled &&
+              theme.getStyles('Elements.Link.textDisabled', className),
             loading && theme.getStyles('Elements.Link.textLoading', className),
             textAlign && { textAlign },
             underline && theme.getStyles('Elements.Link.underline', className),
@@ -81,11 +85,7 @@ class Link extends Component<Props, State> {
         >
           {children}
         </Text>
-        <LoadingIndicator
-          loading={loading}
-          absolute
-          size="button"
-        />
+        <LoadingIndicator loading={loading} absolute size="button" />
       </TouchableOpacity>
     );
   }
@@ -103,6 +103,4 @@ Link.defaultProps = {
   className: null,
 };
 
-export default compose(
-  withTheme,
-)(Link);
+export default compose(withTheme)(Link);
