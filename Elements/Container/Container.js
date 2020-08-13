@@ -138,7 +138,7 @@ Container.defaultProps = {
 
 export default compose(
   withStatics({
-    Fill,
+    Fill: withTheme(Fill),
   }),
   withTheme,
 )(Container);
