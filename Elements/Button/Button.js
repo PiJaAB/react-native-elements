@@ -57,7 +57,7 @@ class Button extends Component<Props, State> {
     this.setState({ active: false });
   };
 
-  renderText = child => {
+  renderText = (child) => {
     const { active } = this.state;
     const {
       basic,
@@ -122,7 +122,7 @@ class Button extends Component<Props, State> {
       if (typeof children === 'function') {
         return children({ active });
       }
-      return React.Children.map(children, child =>
+      return React.Children.map(children, (child) =>
         typeof child === 'string' ? this.renderText(child) : child,
       );
     };
@@ -170,7 +170,11 @@ class Button extends Component<Props, State> {
           ]}
         >
           {loading ? (
-            <ActivityIndicator color={loadingIndicatorColor} />
+            <ActivityIndicator
+              color={
+                loadingIndicatorColor || theme.spec.colors.loadingIndicator
+              }
+            />
           ) : (
             renderChildren({ active })
           )}
