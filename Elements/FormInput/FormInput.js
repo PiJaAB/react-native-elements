@@ -17,6 +17,7 @@ type Props = TextInputProps & {
   placeholderTextColor: string,
   className?: string | string[],
   theme: Theme,
+  innerRef?: React.Ref<TextInput>,
 };
 
 const FormInput = ({
@@ -25,6 +26,7 @@ const FormInput = ({
   style,
   className,
   theme,
+  innerRef,
   ...rest
 }: Props) => (
   <TextInput
@@ -32,6 +34,7 @@ const FormInput = ({
     style={[theme.getStyles('Elements.FormInput.textInput', className), style]}
     onSubmitEditing={onSubmit}
     underlineColorAndroid="transparent"
+    ref={innerRef}
     {...rest}
   />
 );
