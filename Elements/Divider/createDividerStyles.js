@@ -23,7 +23,6 @@ export default ({ colors, dimensions, fonts }: ThemeSpec) => ({
     color: colors.secondaryText,
     ...fonts.label,
     fontSize: dimensions.baseSize,
-    lineHeight: dimensions.baseSize,
     // textTransform: 'uppercase',
     letterSpacing: dimensions.baseSize * 0.05,
   },

@@ -24,7 +24,6 @@ export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
       fontFamily: fonts.primary.fontFamily,
       fontWeight: '300',
     }),
-    lineHeight: dimensions.baseSize * unit(14),
   },
   textDisabled: {
     color: colors.primaryBorder,

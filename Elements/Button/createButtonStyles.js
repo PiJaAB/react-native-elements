@@ -27,7 +27,6 @@ export default ({ colors, dimensions, fonts, font }: ThemeSpec) => ({
   text: {
     textAlign: 'center',
     fontSize: dimensions.baseSize * unit(13),
-    lineHeight: dimensions.baseSize * unit(18),
     ...font({
       fontFamily: fonts.primary.fontFamily,
       fontWeight: '300',
